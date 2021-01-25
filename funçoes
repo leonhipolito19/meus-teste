@@ -1,0 +1,94 @@
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+//função sem retorno e sem parametro
+void soma()
+{
+	float n1, n2, resultado;
+	cout << "Digite um nomero:" << endl;
+	cin >> n1;
+	cout << "Digite outro numero para somar:" << endl;
+	cin >> n2;
+	resultado = n1 + n2;
+	cout << "O resultado da soma é " << resultado << endl;
+}
+
+//funçao com retorno sem parametro
+float subtrair()
+{
+	int n1, n2, resultado;
+	cout << "Digite um numero:" << endl;
+	cin >> n1;
+	cout << "Digite outro numero para subtrair:" << endl;
+	cin >> n2;
+	resultado = n1 - n2;
+  cout << "O resultado da divisão é ";
+	return resultado;
+}
+
+//funcao sem retorno com parametros
+void multiplicar (float mult)
+{
+	cout << mult << endl;
+}
+
+//funcao com retorno com parametros
+float dividir(float div)
+{
+	return div;
+}
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	int op;
+	do{
+		cout << "1 - Somar " << endl;
+		cout << "2 - Subtrair " << endl;
+		cout << "3 - Multiplicar " << endl;
+		cout << "4 - Dividir " << endl;
+		cout << "5 - SAIR " << endl;
+		cin >> op;
+		switch(op)
+		{
+			case 1:
+				soma();
+			break;
+			case 2:
+        cout << subtrair() << endl; 
+			
+			break;
+			case 3:
+				float n1, n2, resultado;
+	  	       cout << "Digite um numero:" << endl;
+       	   	   cin >> n1;
+      	  	   cout << "Digite outro numero para ser o multiplicador:" << endl;
+      	  	   cin >> n2;
+      	  	   resultado= n1*n2;
+      	  	   cout << "O resultado da multiplicação é ";
+      	  	   multiplicar(resultado);
+		   break;
+	       case 4:
+		   	float sub1, sub2, result;
+     	    cout << "Digite um numero:" << endl;
+      	    cin >> sub1;
+      	    cout << "Digite outro numero para ser o divisor:" << endl;
+   	  	    cin >> sub2;
+  	  	    result= dividir(sub1/sub2);
+      	    cout << "O resultado da divisão é " << result << endl;
+	 	  break;
+ 	      case 5:
+ 	      	cout << "Encerrando!!!";
+ 	   	  break;
+ 	     default:
+ 	     	cout << "Opção Invalido !!!" << endl;
+   	     break;
+	   			
+		}
+		
+	}while(op != 5);
+	
+	return 0;
+}
