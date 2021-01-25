@@ -1,0 +1,120 @@
+//Desenvolva um programa em C++ utilizando structs para cadastro de equipes para uma maratona de programação.
+//Cada equipe é composta por um nome de identificação, nível da equipe(Iniciante ou Experiente), 3 alunos titulares e um aluno reserva. Dos alunos, você deve salvar o nome, ano de nascimento, sexo e período.
+//Apresente um menu para:
+//cadastrar as equipes com seus respectivos dados;
+//Imprimir os dados das equipes cadastradas por nível
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+struct participantes{	
+  string nome, periodo;
+  int dia, mes, ano;
+  char sexo;
+}; 
+ 
+struct equipe{
+ string nomeequipe, nivel;
+ participantes aluno1, aluno2, aluno3, aluno4;
+};
+
+int main() 
+{
+  setlocale(LC_ALL, "portuguese");
+
+  equipe equipes[50];
+  int op, aux=0;
+  string mostrar; 
+  do{
+    cout << "1 - Cadastrar equipes: " << endl;
+    cout << "2 - Mostrar equipes cadastradas por nivel, ex:(Iniciante ou Experiente): " << endl;
+    cout << "3 - Sair " << endl;
+    cout << "Qual opção deseja escolher: " << endl;
+    cin >> op;
+    switch (op)
+    {
+      case 1:
+        cout << "Digite o nome da equipe: " << endl;
+        cin.ignore();
+        getline(cin,equipes[aux].nomeequipe);
+        cout << "Digite o nivel de experiencia da equipe (Iniciante ou Experiente): " << endl;
+        cin >> equipes[aux].nivel;
+        cout << "Digite o nome do primeiro(a) participante titular da equipe: " << endl;
+        cin.ignore();
+        getline(cin,equipes[aux].aluno1.nome);
+        cout << "Digite o periodo do aluno(a): " << endl;
+        cin >> equipes[aux].aluno1.periodo;
+        cout << "Digite o sexo do aluno(a): " << endl;
+        cin >> equipes[aux].aluno1.sexo;
+        cout << "Digite a data de nascimento (02 02 2000): " << endl;
+        cin >> equipes[aux].aluno1.dia;
+        cin >> equipes[aux].aluno1.mes;
+        cin >> equipes[aux].aluno1.ano;
+        cout << "Digite o nome do segundo(a) participante titular da equipe: " << endl;
+        cin.ignore();
+        getline(cin,equipes[aux].aluno2.nome);
+        cout << "Digite o periodo do aluno(a): " << endl;
+        cin >> equipes[aux].aluno2.periodo;
+        cout << "Digite o sexo do aluno(a): " << endl;
+        cin >> equipes[aux].aluno2.sexo;
+        cout << "Digite a data de nascimento (02 02 2000): " << endl;
+        cin >> equipes[aux].aluno2.dia;
+        cin >> equipes[aux].aluno2.mes;
+        cin >> equipes[aux].aluno2.ano;
+        cout << "Digite o nome do terceiro(a) participante titular da equipe: " << endl;
+        cin.ignore();
+        getline(cin,equipes[aux].aluno3.nome);
+        cout << "Digite o periodo do aluno(a): " << endl;
+        cin >> equipes[aux].aluno3.periodo;
+        cout << "Digite o sexo do aluno(a): " << endl;
+        cin >> equipes[aux].aluno3.sexo;
+        cout << "Digite a data de nascimento (02 02 2000): " << endl;
+        cin >> equipes[aux].aluno3.dia;
+        cin >> equipes[aux].aluno3.mes;
+        cin >> equipes[aux].aluno3.ano;
+        cout << "Digite o nome do participante reserva da equipe: " << endl;
+        cin.ignore();
+        getline(cin,equipes[aux].aluno4.nome);
+        cout << "Digite o periodo do aluno(a): " << endl;
+        cin >> equipes[aux].aluno4.periodo;
+        cout << "Digite o sexo do aluno(a): " << endl;
+        cin >> equipes[aux].aluno4.sexo;
+        cout << "Digite a data de nascimento (02 02 2000): " << endl;
+        cin >> equipes[aux].aluno4.dia;
+        cin >> equipes[aux].aluno4.mes;
+        cin >> equipes[aux].aluno4.ano;
+        aux++;
+      break;
+      case 2:
+        cout << "Digite qual o nivel de expêriencia das equipes que deseja mostrar(Iniciante ou Experiente):" << endl;
+        cin >> mostrar;
+        for (int i = 0; i < aux; i++)
+        {
+          if (mostrar == equipes[i].nivel)
+          {
+            cout << "Equipe - " << equipes[i].nomeequipe <<endl; 
+            cout << "Nivel de experiencia - " << equipes[i].nivel <<endl;
+			      cout << "Participante 1 - " << equipes[i].aluno1.nome << "   - "<< equipes[i].aluno1.periodo << "° Periodo  " <<endl;
+            cout << "Data de Nascimento: " << equipes[i].aluno1.dia<<"/"<<equipes[i].aluno1.mes<<"/"<< equipes[i].aluno1.ano <<"   -Sexo:"<<equipes[i].aluno1.sexo<<endl;
+			      cout << "Participante 2 - " << equipes[i].aluno2.nome << "   - "<< equipes[i].aluno2.periodo << "° Periodo  " <<endl;
+            cout << "Data de Nascimento: " << equipes[i].aluno2.dia<<"/"<<equipes[i].aluno2.mes<<"/"<< equipes[i].aluno2.ano <<"   -Sexo:"<<equipes[i].aluno2.sexo<<endl;
+			      cout << "Participante 3 - " << equipes[i].aluno3.nome << "   - "<< equipes[i].aluno3.periodo << "° Periodo  " <<endl;
+            cout << "Data de Nascimento: " << equipes[i].aluno3.dia<<"/"<<equipes[i].aluno3.mes<<"/"<< equipes[i].aluno3.ano <<"   -Sexo:"<<equipes[i].aluno3.sexo<<endl;
+			      cout << "Reserva - " << equipes[i].aluno4.nome << "   - "<< equipes[i].aluno4.periodo << "° Periodo - " <<endl;
+            cout << "Data de Nascimento: " << equipes[i].aluno4.dia<<"/"<<equipes[i].aluno4.mes<<"/"<< equipes[i].aluno4.ano <<"   -Sexo:"<<equipes[i].aluno4.sexo<<endl;
+          }
+        }
+
+      break;
+      case 3:
+        cout << "Encerrando...." ;
+      break;
+      default:
+        cout << "Opção invalida!!!" <<endl;
+      break;
+    }
+   
+  }while (op != 3);
+  return 0;
+}
