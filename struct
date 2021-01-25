@@ -1,0 +1,47 @@
+//Implemente um programa que leia o nome, a data de nascimento e o endereço(Rua, Numero, Cidade, Estado) de uma pessoa e armazene os dados em uma estrutura.
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+struct pessoa{
+ string nome;
+ string dataNascimento;
+};
+
+struct endereco{
+ string rua;
+ int numero;
+ string cidade;
+ string estado;
+ pessoa dados;
+};
+
+int main() {
+
+  setlocale(LC_ALL, "portuguese");
+  
+  endereco cadastro;
+
+  cout << "Digite o seu nome: " << endl;
+  cin >> cadastro.dados.nome;
+
+  cout << "Digite a data do seu nascimento: " << endl;
+  cin >> cadastro.dados.dataNascimento;
+
+  cout << "Digite o nome do seu estado: " << endl;
+  cin >> cadastro.estado;
+
+  cout << "Digite o nome da sua cidade: " << endl;
+  cin >> cadastro.cidade;
+
+  cout << "Digite o nome da sua  rua: " << endl;
+  cin>> cadastro.rua;
+
+  cout << "Digite o número da sua casa: " << endl;
+  cin >> cadastro.numero;
+
+  cout << " Nome : "<<cadastro.dados.nome<<"\t\t Data de nascimento : "<<cadastro.dados.dataNascimento<<"\n Estado : "<<cadastro.estado<<"\t\t Cidade : "<<cadastro.cidade<<"\n Rua : "<<cadastro.rua<<"\t\t N° : "<<cadastro.numero;
+  
+  return 0;
+}
