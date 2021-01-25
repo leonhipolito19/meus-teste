@@ -1,0 +1,38 @@
+#include <iostream>
+#include <locale>
+
+using namespace std;
+
+
+
+string triangulo(int ladoy, int ladox=0, int ladoz=0){
+	cout << "Digite o lado X do Triângulo:" << endl;
+	cin >> ladox;
+	cout << "Digite o lado Y do Triângulo:" << endl;
+	cin >> ladoy;
+	cout << "Digite o lado Z do Triângulo:" << endl;
+	cin >> ladoz;
+		if ((ladox>=ladoy+ladoz) || (ladoy>=ladox+ladoz) || (ladoz>=ladox+ladoy)){
+			return "Triângulo Inválido\n";
+		}
+		if ((ladox == ladoy) && (ladoy == ladoz)){
+			return "Triângulo Equilátero";		 
+		}	 
+		else if ((ladox != ladoy) && (ladox != ladoz) && (ladoy != ladoz)){
+			return "Triângulo Escaleno" ;		 
+		}
+		else if ((ladox == ladoy != ladoz) ){
+			return "Triângulo Isósceles" ;	
+		}
+		return 0;
+}	
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+
+
+	cout << triangulo(0);
+		
+	
+}
